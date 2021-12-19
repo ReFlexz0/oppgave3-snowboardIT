@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    min-height: 60vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.85), rgba(4, 9, 30, 0.85)), url(../images/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+@falldowntop {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 130px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links ul li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #540e9b;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+
+/* Actual content of site */
+
+.title {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.title h1 {
+    font-size: 50px;
+}
+
+#underlinetext {
+    text-decoration: 4px underline;
+}
+
+
+/* Location content */
+
+.locationcontent-wrapper {
+    width: 100%;
+    height: 600ch;
+    justify-content: center;
+    display: flex;
+    padding-top: 100px;
+    flex-direction: column;
+}
+
+.location {
+    width: 100%;
+    height: 20%;
+    top: 0;
+    margin-top: 100px;
+}
+
+.location-title {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.location-clip {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    margin-left: 20%;
+    border: none;
+}
+
+.location-description {
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+}
+
+.location-button {
+    width: 8%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    padding: 12px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.location-button:hover {
+    border: 1px solid #4f1f80;
+    background: #540e99;
+    transition: 1s;
+}
+
+
+/* --- copyright --- */
+
+.copyright {
+    background-color: rgb(54, 29, 141);
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    margin-top: 200px;
+}
+
+.copyright_disclaimer {
+    flex-basis: 22%;
+    border-radius: 5px;
+    position: left;
+    overflow: hidden;
+}
+
+.p .copyright_text {
+    color: #fff;
+}
+
+
+/* Contact form below */
+
+.buy-overlay {
+    position: absolute;
+    min-width: 100%;
+    height: 263ch;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+}
+
+#overlap {
+    display: none;
+}
+
+.buy-overlay .overlay-content {
+    background-color: #111111;
+    width: 50%;
+    height: 30%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.overlay-content form {
+    max-height: -60%;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    margin-top: -10%;
+}
+
+.overlay-content .NameLast {
+    display: flex;
+    flex-direction: row;
+    height: 5%;
+    width: 90%;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+.overlay-content .NameLast div {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 50px;
+    font-size: 22px;
+    height: 5%;
+    width: 80%;
+}
+
+.overlay-content input:focus {
+    outline: none;
+}
+
+#input-name {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: left;
+}
+
+#input-last {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: right;
+    clear: right;
+}
+
+.mail {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 150px;
+    font-size: 22px;
+}
+
+.mail div {
+    width: 80%;
+}
+
+#input-mail {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: right;
+    clear: right;
+}
+
+.otherinfo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.otherinfo .userinfo label {
+    display: flex;
+    float: left;
+    font-size: 22px;
+    padding: 10px 10px;
+}
+
+#infobox {
+    width: 90%;
+    background-color: #111111;
+    border: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    resize: none;
+    padding: 5px 5px;
+}
+
+.product-info {
+    display: flex;
+    float: right;
+    width: -100%;
+}
+
+.product-info label {
+    font-size: 22px;
+}
+
+.product-info input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    cursor: default;
+}
+
+#close {
+    display: flex;
+    margin-left: auto;
+    align-content: right;
+    justify-content: right;
+    margin-right: auto;
+    width: 49%;
+    margin-top: 10px;
+    position: absolute;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    z-index: 500;
+}
+
+.submit-button {
+    min-width: 100%;
+    height: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.submit-button button {
+    width: 45%;
+    height: 60px;
+    margin-top: 50px;
+    background-color: #2ECC40;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+}

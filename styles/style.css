@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.85), rgba(4, 9, 30, 0.85)), url(../images/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 130px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links ul li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #540e9b;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    margin-top: 3em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text-box h1 {
+    font-size: 62px;
+    -webkit-animation: falldown-animation 2s;
+    -webkit-animation-delay: 0.5s;
+}
+
+.text-box h2 {
+    font-size: 35px;
+    -webkit-animation: falldown-animation 2.5s;
+    -webkit-animation-delay: 0.5;
+}
+
+.products-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    -webkit-animation: moveup-animation 2s;
+    -webkit-animation-delay: 2s;
+}
+
+.products-btn:hover {
+    border: 1px solid #4f1f80;
+    background: #540e99;
+    transition: 1s;
+}
+
+#down {
+    scroll-behavior: smooth;
+    margin-top: 0%;
+}
+
+@keyframes up-down-animation {
+    from {
+        transform: translateY(40px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+nav .fa {
+    display: none;
+}
+
+
+/* ---about us--- */
+
+.information {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    color: rgb(32, 32, 32);
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+p {
+    color: rgb(32, 32, 32);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    flex-basis: 31%;
+    background: #ece6e6;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.col p {
+    font-size: 14px;
+}
+
+
+/* --- products preview --- */
+
+.product-preview {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.product-col {
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-preview img {
+    width: 100%;
+}
+
+.product-col img {
+    width: 100%;
+}
+
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.7s;
+}
+
+.link-to-products {
+    font-size: 20px;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.layer:hover {
+    background: rgba(98, 29, 189, 0.5);
+}
+
+
+/* --- copyright --- */
+
+.copyright {
+    background-color: rgb(54, 29, 141);
+    width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+.copyright_disclaimer {
+    flex-basis: 22%;
+    border-radius: 5px;
+    position: left;
+    overflow: hidden;
+}
+
+.p .copyright_text {
+    color: #fff;
+}
+
+
+/*
+The code below was used to experiment with how the website would work on smaller devices, something that required way to much time and was layed back for a later time. 
+
+@media(max-width: 700px){
+    .text-box h1{
+        width: 31px;
+    }
+    .text-box h2{
+        width: 17px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background: #4f1f80;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+    }
+}
+*/
+
+
+/* ANIMATIONS */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes falldown-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveup-animation {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buy-overlay {
+    position: absolute;
+    min-width: 100%;
+    height: 263ch;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+}
+
+#overlap {
+    display: none;
+}
+
+.buy-overlay .overlay-content {
+    background-color: #111111;
+    width: 50%;
+    height: 30%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.overlay-content form {
+    max-height: -60%;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    margin-top: -10%;
+}
+
+.overlay-content .NameLast {
+    display: flex;
+    flex-direction: row;
+    height: 5%;
+    width: 90%;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+.overlay-content .NameLast div {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 50px;
+    font-size: 22px;
+    height: 5%;
+    width: 80%;
+}
+
+.overlay-content input:focus {
+    outline: none;
+}
+
+#input-name {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: left;
+}
+
+#input-last {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: right;
+    clear: right;
+}
+
+.mail {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 150px;
+    font-size: 22px;
+}
+
+.mail div {
+    width: 80%;
+}
+
+#input-mail {
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    float: right;
+    clear: right;
+}
+
+.otherinfo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.otherinfo .userinfo label {
+    display: flex;
+    float: left;
+    font-size: 22px;
+    padding: 10px 10px;
+}
+
+#infobox {
+    width: 90%;
+    background-color: #111111;
+    border: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    resize: none;
+    padding: 5px 5px;
+}
+
+.product-info {
+    display: flex;
+    float: right;
+    width: -100%;
+}
+
+.product-info label {
+    font-size: 22px;
+}
+
+.product-info input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 22px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    cursor: default;
+}
+
+#close {
+    display: flex;
+    margin-left: auto;
+    align-content: right;
+    justify-content: right;
+    margin-right: auto;
+    width: 49%;
+    margin-top: 10px;
+    position: absolute;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    z-index: 500;
+}
+
+.submit-button {
+    min-width: 100%;
+    height: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.submit-button button {
+    width: 45%;
+    height: 60px;
+    margin-top: 50px;
+    background-color: #2ECC40;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+}

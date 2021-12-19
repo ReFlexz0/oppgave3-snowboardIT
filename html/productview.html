@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<!-- Under we are assigning and importing different things, such as fonts, icon handler, 
+    and just declaring title -->
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Snowlance Products</title>
+    <link rel="stylesheet" href="../../styles/productview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/207a0bf60e.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div>
+        <section class="header">
+            <nav>
+                <a href="../index.html"><img src="/images/whitelogo.png"></a>
+                <div class="nav-links">
+                    <ul class="nav-main">
+                        <div class="search-wrapper">
+                            <li class="nav-searchicon"><i class="fas fa-search"></i></li>
+                            <input class="nav-searchbar" type="text" placeholder="Search">
+                        </div>
+                        <li class="nav-textbutton"><a href="../../index.html">HOME</a></li>
+                        <li class="nav-textbutton"><a class="nav-product-button" href="./products.html">PRODUCTS</a></li>
+                        <li class="nav-textbutton"><a href="./locations.html">LOCATIONS</a></li>
+                        <li class="nav-textbutton"><a href="#contact-us">CONTACT US</a></li>
+                        <li class="user-icon"><i class="fas fa-user"></i></li>
+                        <li class="shopping-cart-icon">
+                            <a href="#shopping-cart"></a><i class="fas fa-shopping-cart"></i></li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+        <div id="productviewhandler" class="mainproudct-wrapper">
+            <div class="leftpage-wrapper">
+                <div class="productimage">
+                    <img :src="product.image" alt=" ">
+                </div>
+            </div>
+            <div class="rightpage-wrapper ">
+                <div class="product-contentbox ">
+                    <h1>{{ product.name }}</h1>
+                    <h1>{{product.price + ',-'}}</h1>
+                    <h1>&InvisibleComma;</h1>
+                    <button type='button' onclick="toggleoverlay()" id="buybutton" class="addtocart">BUY <i class="fas fa-shopping-cart"></i></button>
+                    <h2 class="info">PRODUCT INFO</h2>
+                    <h2>{{product.description}}</h2>
+                </div>
+            </div>
+            <div id="overlap" class="buy-overlay">
+                <div class="overlay-content">
+                    <i onclick="toggleoverlay('close')" id="close" class="fas fa-times"></i>
+                    <form onsubmit="location.reload()">
+                        <div class="NameLast">
+                            <div>
+                                <label for="input-name">First Name *</label>
+                                <input type="text" placeholder="Dan" id="input-name">
+                            </div>
+                            <div>
+                                <label for="input-last">Last Name *</label>
+                                <input type="text" placeholder="Johnson" id="input-last">
+                            </div>
+                        </div>
+                        <div class="mail">
+                            <div>
+                                <label for="input-mail">Email *</label>
+                                <input type="email" placeholder="example@domain.com" id="input-mail">
+                            </div>
+                        </div>
+                        <div class="otherinfo">
+                            <div class="userinfo">
+                                <label for="input-mail">Other information</label>
+                                <textarea id="infobox" cols="20" rows="8" placeholder="Other information you would like to share"></textarea>
+                            </div>
+                            <div class="product-info">
+                                <div>
+                                    <label for="input-mail">Information about purchase</label>
+                                    <input type="text" :value="product.name" readonly name="" id="pname">
+                                    <input type="text" :value="product.price + ',- NOK'" readonly name="" id="pprice">
+                                    <input type="text" :value="currenttime" readonly name="" id="submitdate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="submit-button">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="copyright">
+        <div class="copyright_disclaimer">
+            <p style="color: #fff">&copy; 2021 Adrian Skeie</p>
+        </div>
+    </section>
+    <script type="module" src="./products/view.js "></script>
+    <script>
+        function toggleoverlay(e) {
+            overlay = document.getElementById("overlap");
+            if (e == 'close') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'flex';
+            }
+        }
+        document.getElementById("buybutton").addEventListener("click", toggleoverlay)
+    </script>
+</body>
+
+
+</html>

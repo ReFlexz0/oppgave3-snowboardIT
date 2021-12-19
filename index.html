@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Add something here soon enough (remember plz)</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/207a0bf60e.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="/images/logo.png"></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="html/products.html">PRODUCTS</a></li>
+                    <li><a href="html/locations.html">LOCATIONS</a></li>
+                    <li><a onclick="toggleoverlay()" href="#contact-us">CONTACT US</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-box">
+            <h1 id="welcome-text" style="opacity: 0;">Welcome To
+                <span style="font-weight: bold; color: #7f24aa; text-shadow: 0 0 20px 0px rgb(0, 0, 0, 0.2)">Snowlance</span>
+            </h1>
+            <h2 id="quote" style="opacity: 0;">Quality Products Approved Only By The Best</h2>
+            <p>&InvisibleComma;</p>
+            <a href="#down" id="product-btn-id" class="products-btn" style="opacity: 0;">View Products</a>
+
+            <script>
+                h1_element = document.getElementById("welcome-text");
+                h2_element = document.getElementById("quote");
+                product_button_element = document.getElementById("product-btn-id");
+                window.onload = function change_starttext_opacity() {
+                    setTimeout(() => {
+                        h1_element.style.opacity = "1";
+                    }, 2400);
+                    setTimeout(() => {
+                        h2_element.style.opacity = "1";
+                    }, 2400);
+                    setTimeout(() => {
+                        product_button_element.style.opacity = "1";
+                    }, 3000);
+
+                }
+            </script>
+
+        </div>
+
+    </section>
+
+    <!--- About us --->
+    <section class="information">
+        <h1>About Us</h1>
+        <p>Snowlance is a small retail company based in Norway. We sell products for all your snowboarding needs. We have made sure that the product that we are delivering is only the very best, getting the right people for the job. Our small team consists
+            of experienced and talented designers, and the products are being tested by professionals aswell. we are currently shipping all over Europe and more! Other countries we ship to are USA and Canada. If you are looking to buy snowboarding products
+            head on over to the products tab, or scroll down to view a preview of some of our products.
+        </p>
+
+        <p>
+            If you are unhappy with your product, failed to furfill your expectations or got broken after regular use, fear not! We have a 30 day return policy, aswell as a 2 month guarantee.
+        </p>
+
+        <div class="row">
+            <div class="col">
+                <h3><i class="fas fa-check-square"></i> Top quality</h3>
+                <p>We make sure and deliver quality products designed and tested by professionals. You can always expect the best!</p>
+            </div>
+            <div class="col">
+                <h3><i class="fas fa-shipping-fast"></i> Return Policy</h3>
+                <p>We offer a 30 day money back guarantee if you ever feel unhappy with your product, as well as a 2 month guarantee. So you know it's always safe to buy from us!</p>
+            </div>
+            <div class="col">
+                <h3><i class="fas fa-leaf"></i> Eco Friendly</h3>
+                <p>The production of our products are eco friendly, as everything is made by hand by the finest craftmen.</p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!--- View of some products --->
+    <section id="down" class="product-preview">
+        <h1>Product Preview</h1>
+        <p>Here is a preview of some of our products, if you wish to view more, just go ahead and click on one of the products.</p>
+
+        <div class="row">
+            <div class="product-col">
+                <a class="link-to-products" href="./html/products.html">
+                    <img src="./html/products/product_images/snowboards/snowboard_mountain_rider.jpg" />
+                    <div class="layer">
+                    </div>
+                    <h3>Mountain Rider</h3>
+                </a>
+            </div>
+            <div class="product-col">
+                <a class="link-to-products" href="./html/products.html">
+                    <img src="/html/products/product_images/snowboards/snowboard_the_airbourne.jpg">
+                    <div class="layer">
+                    </div>
+                    <h3>The Airbourne</h3>
+                </a>
+            </div>
+            <div class="product-col">
+                <a class="link-to-products" href="./html/products.html">
+                    <img src="/html/products/product_images/snowboardbags/snowboardbag_boardcase.jpg">
+                    <div class="layer">
+                    </div>
+                    <h3>Board Bag</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--- Copyright and contact --->
+    <section class="copyright">
+        <div class="copyright_disclaimer">
+            <p style="color: #fff">&copy; 2021 Adrian Skeie</p>
+        </div>
+    </section>
+
+</body>
+<div id="overlap" class="buy-overlay">
+    <div class="overlay-content">
+        <i onclick="toggleoverlay('close')" id="close" class="fas fa-times"></i>
+        <form>
+            <div class="NameLast">
+                <div>
+                    <label for="input-name">First Name *</label>
+                    <input type="text" placeholder="Dan" id="input-name">
+                </div>
+                <div>
+                    <label for="input-last">Last Name *</label>
+                    <input type="text" placeholder="Johnson" id="input-last">
+                </div>
+            </div>
+            <div class="mail">
+                <div>
+                    <label for="input-mail">Email *</label>
+                    <input type="email" placeholder="example@domain.com" id="input-mail">
+                </div>
+            </div>
+            <div class="otherinfo">
+                <div class="userinfo">
+                    <label for="input-mail">Contact Reason *</label>
+                    <textarea id="infobox" cols="60" rows="10" placeholder="Please write in detail"></textarea>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleoverlay(e) {
+        overlay = document.getElementById("overlap");
+        if (e == 'close') {
+            overlay.style.display = 'none';
+        } else {
+            overlay.style.display = 'flex';
+        }
+    }
+    document.getElementById("buybutton").addEventListener("click", toggleoverlay)
+</script>
+
+</html>

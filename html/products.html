@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+
+<!-- Under we are assigning and importing different things, such as fonts, icon handler, 
+    and just declaring title -->
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Snowlance Products</title>
+    <link rel="stylesheet" href="../styles/products-page-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/207a0bf60e.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+</head>
+
+<body>
+    <div id="plist">
+        <section class="header">
+            <nav>
+                <a href="../index.html"><img src="/images/whitelogo.png"></a>
+                <div class="nav-links">
+                    <ul class="nav-main">
+                        <div class="search-wrapper">
+                            <li class="nav-searchicon"><i class="fas fa-search"></i></li>
+                            <input class="nav-searchbar" type="text" placeholder="Search">
+                        </div>
+                        <li class="nav-textbutton"><a href="../index.html">HOME</a></li>
+                        <li class="nav-textbutton"><a class="nav-product-button" href="products.html">PRODUCTS</a></li>
+                        <li class="nav-textbutton"><a href="./locations.html">LOCATIONS</a></li>
+                        <li id="contactbutton" onclick="toggleoverlay()" class="nav-textbutton"><a href="#contact-us">CONTACT US</a></li>
+                        <li class="user-icon"><i class="fas fa-user"></i></li>
+                        <li class="shopping-cart-icon">
+                            <a href="#shopping-cart"></a><i class="fas fa-shopping-cart"></i></li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <script src="https://unpkg.com/vue@next"></script>
+        <div class="product-main-wrapper">
+            <div class="category-header">
+                <h1 class="main-title">{{title}}</h1>
+            </div>
+            <div class="disclaimer">
+                <h1>DISCLAIMER!</h1>
+                <h2>Due to recent events the shopping cart is currently unavailable.</h2>
+                <h2>This is not a problem, as we have temporarily replaced it with a contact form. After submission you will recieve an email containing product information and a link that will redirect you to the other purchase system.</h2>
+            </div>
+            <div class="container-filters">
+                <div id="filterhandler" class="sort-popularity">
+                    <button id="b1" onclick="showbutton(this.id)" class="far-right-dropdown">
+                        <span>{{ selected_b1 }}</span>
+                        <i class="fas fa-sort-down"></i>
+                    </button>
+
+                    <script>
+                        function showbutton(clicked_id) {
+                            window.addEventListener('click', function(e) {
+                                if (document.getElementById(clicked_id).contains(e.target)) {
+                                    button_content = document.getElementById(clicked_id + "_content")
+                                    if (button_content.style.display != "block") {
+                                        button_content.style.display = "block";
+                                    }
+                                } else {
+                                    button_content.style.display = "none";
+                                }
+                            });
+                        }
+                    </script>
+
+                    <div id="b1_content" class="sort-content">
+                        <div class="sort-choices">
+                            <div @click="sorting_filters('Popularity')" class="sort-item">Popularity</div>
+                            <div @click="sorting_filters('High to low')" class="sort-item">High to low</div>
+                            <div @click="sorting_filters('Low to high')" class="sort-item">Low to high</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!---  This is the part where all the items will be listed on the products.html, this part will be using the vue.js framework for loading and quickyly 
+               "refresh" the site without reloading the page. --->
+        <div class="products-body-wrapper">
+
+            <div class="products-sidemenu-wrapper">
+                <div id="smenu">
+                    <div v-for="item in items">
+                        <h4 @click="additemfilter(item)"> {{item.name}}</h4>
+                        <div class="submenu" v-for="sub in subcategory">
+                            <div v-if="sub.id == item.id">
+                                <h5 @click="additemfilter(sub)">{{sub.name}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="products/sidemenu.js"></script>
+            </div>
+            <div class="products-display-wrapper">
+                <div class="product-colum">
+                    <div v-if="products.user == admin">
+                        <div v-for="(product, index) in filtered" :key="" class="product-item">
+                            <div @click="redirectproductpage(product.id)">
+                                <button class="edit-product-button">EDIT</button>
+                                <a><img class="product-image" :src="filtered[index].image"><button class="View-button">VIEW</button></a>
+                                <h3>{{ filtered[index].name.toUpperCase() }}</h3>
+                                <h4>{{ filtered[index].price + ",-"}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else-if="user != admin">
+                        <div v-for="product in filtered" class="product-item">
+                            <a><img class="product-image" :src="product.image"><button class="View-button">VIEW</button></a>
+                            <h3>{{ product.name.toUpperCase() }}</h3>
+                            <h4>{{ product.price + ",-"}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="products/main.js"></script>
+        </div>
+
+        <section class="copyright">
+            <div class="copyright_disclaimer">
+                <p style="color: #fff">&copy; 2021 Adrian Skeie</p>
+            </div>
+        </section>
+
+</body>
+<div id="overlap" class="buy-overlay">
+    <div class="overlay-content">
+        <i onclick="toggleoverlay('close')" id="close" class="fas fa-times"></i>
+        <form target="/">
+            <div class="NameLast">
+                <div>
+                    <label for="input-name">First Name *</label>
+                    <input type="text" placeholder="Dan" id="input-name">
+                </div>
+                <div>
+                    <label for="input-last">Last Name *</label>
+                    <input type="text" placeholder="Johnson" id="input-last">
+                </div>
+            </div>
+            <div class="mail">
+                <div>
+                    <label for="input-mail">Email *</label>
+                    <input type="email" placeholder="example@domain.com" id="input-mail">
+                </div>
+            </div>
+            <div class="otherinfo">
+                <div class="userinfo">
+                    <label for="input-mail">Contact Reason *</label>
+                    <textarea id="infobox" cols="60" rows="10" placeholder="Please write in detail"></textarea>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleoverlay(e) {
+        overlay = document.getElementById("overlap");
+        if (e == 'close') {
+            overlay.style.display = 'none';
+        } else {
+            overlay.style.display = 'flex';
+        }
+    }
+    document.getElementById("buybutton").addEventListener("click", toggleoverlay)
+</script>
+
+</html>
